@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "ES2020",
+    "module": "ESNext",
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "sourceMap": true
+  },
+  "include": ["/src/**/*"],
+  "exclude": ["./dist"],
+
+  "ts-node": {
+    "esm": true,
+    "files": true // make sure ts-node loads definitions from the above config `includes`
+  }
+}

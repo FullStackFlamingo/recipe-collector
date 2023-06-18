@@ -6,7 +6,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run dev -ws --if-exists",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:lambda\"",
+    "dev:client": "npm run dev -w @private/recipe-collector-client",
+    "dev:lambda": "npm run dev -w @private/recipe-collector-lambda",
     "build": "npm run build -ws --if-exists",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +17,8 @@
   "devDependencies": {
     "eslint": "^8.42.0",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
-    "@typescript-eslint/parser": "^5.59.9"
+    "@typescript-eslint/parser": "^5.59.9",
+    "concurrently": "^8.2.0"
   },
   "workspaces": [
     "apps/*"

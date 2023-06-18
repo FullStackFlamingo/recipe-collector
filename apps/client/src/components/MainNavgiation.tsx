@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import JSONLD from '../recipe-jsonld-example.json';
-import { Recipe, RecipeJSONLD, db } from '../db';
+import { RecipeJSONLD, db } from '../db';
+import { useFetch } from 'use-http';
 
 const MainNavigationRoot = styled.nav`
   position: relative;
@@ -23,11 +24,15 @@ const MobileButton = styled.button<{ $menuOpen: boolean }>`
 export function MainNavigation() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
+  const { get } = useFetch<RecipeJSONLD>('http://localhost:3333');
+
   const openUrlPrompt = async () => {
     const url = window.prompt('Enter recipe url');
-    // 'fetch' RecipeJSONLD
-    const json = JSON.parse(JSON.stringify(JSONLD)) as RecipeJSONLD;
-    const id = await db.addRecipeFromJSON(json);
+    if (url) {
+      const result = await get(`/?${new URLSearchParams({ url }).toString()}`);
+      console.log(result);
+      const id = await db.addRecipeFromJSON(result);
+    }
   };
 
   return (

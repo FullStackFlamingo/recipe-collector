@@ -9,7 +9,8 @@ function ViewHome() {
   const { i18n, t } = useTranslation();
 
   const recipes = useLiveQuery<Recipe[]>(() => {
-    return db.recipes.where('keywords').anyOfIgnoreCase('chocolate', 'romance').distinct().toArray();
+    // return db.recipes.where('keywords').anyOfIgnoreCase('chocolate', 'romance').distinct().toArray();
+    return db.recipes.toArray();
   }, []);
 
   return (

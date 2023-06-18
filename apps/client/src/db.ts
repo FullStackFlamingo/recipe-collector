@@ -56,7 +56,8 @@ export class DexieRecipes extends Dexie {
     });
   }
 
-  addRecipeFromJSON(json: RecipeJSONLD) {
+  addRecipeFromJSON(json: RecipeJSONLD | undefined) {
+    if (!json) return;
     // convert RecipeJSONLD to Recipe
     const recipeObj: Recipe = {
       ...json,
