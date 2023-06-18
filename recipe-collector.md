@@ -1,0 +1,5 @@
+- import,save recipe from url, parse JSON LD
+- 
+- quatity multiplier (half, double etc) (detect measurement , not times)
+- recipe editor (add/edit/delete ingredient list,(notes?))
+- timers - (detect time text)

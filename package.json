@@ -1,0 +1,23 @@
+{
+  "name": "recipe-collector",
+  "version": "1.0.0",
+  "description": "serverless function + PWA  to store recipes locally",
+  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev -ws --if-exists",
+    "build": "npm run build -ws --if-exists",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}

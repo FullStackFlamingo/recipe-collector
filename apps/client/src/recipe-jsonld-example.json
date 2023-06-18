@@ -1,0 +1,85 @@
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.bbcgoodfood.com/recipes/iced-mocha#Recipe",
+  "@type": "Recipe",
+  "description": "Combine the richness of chocolate milk with a hit of espresso and a whipped cream topping to make a moreish iced mocha – it's like a dessert in a glass",
+  "image": {
+    "@type": "ImageObject",
+    "height": 574,
+    "url": "https://images.immediate.co.uk/production/volatile/sites/30/2021/05/Iced-Mocha-db3c51a.jpg?resize=768,574",
+    "width": 768
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.bbcgoodfood.com/recipes/iced-mocha"
+  },
+  "name": "Iced mocha",
+  "url": "https://www.bbcgoodfood.com/recipes/iced-mocha",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Miriam Nice",
+      "url": "https://www.bbcgoodfood.com/author/miriamnice"
+    }
+  ],
+  "dateModified": "2022-11-08T15:07:05+00:00",
+  "datePublished": "2021-06-03T10:05:39+00:00",
+  "headline": "Iced mocha",
+  "keywords": "Chocolate, Coffee, Drinks, iced drinks, iced mocha, Mocha, Summer drinks, Whipped cream",
+  "publisher": {
+    "@type": "Organization",
+    "name": "BBC Good Food",
+    "url": "https://www.bbcgoodfood.com",
+    "logo": {
+      "@type": "ImageObject",
+      "height": 70,
+      "url": "https://images.immediate.co.uk/production/volatile/sites/30/2022/12/cropped-GF-logos2022CMYK-PrintUKONLY10-2-434430d-f5051ed.png?resize=265,70",
+      "width": 265
+    }
+  },
+  "isAccessibleForFree": "False",
+  "hasPart": {
+    "@type": "WebPageElement",
+    "isAccessibleForFree": "False",
+    "cssSelector": ".js-piano-locked-content"
+  },
+  "cookTime": "PT5M",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "233 calories",
+    "fatContent": "14 grams fat",
+    "saturatedFatContent": "8 grams saturated fat",
+    "carbohydrateContent": "21 grams carbohydrates",
+    "sugarContent": "19 grams sugar",
+    "fiberContent": "1 grams fiber",
+    "proteinContent": "7 grams protein",
+    "sodiumContent": "0.23 milligram of sodium"
+  },
+  "prepTime": "PT1H10M",
+  "recipeCategory": "Drink",
+  "recipeIngredient": [
+    "150ml  milk",
+    "25g milk or dark  chocolate buttons",
+    "ice",
+    "35ml  freshly made espresso",
+    "30ml  double cream, whipped (optional)",
+    "pinch  cocoa powder or cinnamon, or both (optional)"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Pour 50ml of the milk into a small pan and add the chocolate buttons. Mix well until melted, then leave to cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Half-fill a large, tall glass with ice, then pour in the cooled chocolate milk and the remaining 100ml milk and stir to combine."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Top up with more ice, then slowly pour in the espresso. Finish with a dollop of whipped cream and a dusting of cocoa powder or cinnamon – or both, if you like."
+    }
+  ],
+  "recipeYield": 1,
+  "suitableForDiet": "https://schema.org/GlutenFreeDiet, https://schema.org/VegetarianDiet",
+  "totalTime": "PT15M"
+}
