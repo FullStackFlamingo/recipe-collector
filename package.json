@@ -9,8 +9,8 @@
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:lambda\"",
     "dev:client": "npm run dev -w @private/recipe-collector-client",
     "dev:lambda": "npm run dev -w @private/recipe-collector-lambda",
-    "build": "npm run build -ws --if-exists",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build -ws --if-present",
+    "test": "npm run test -ws --if-present"
   },
   "author": "",
   "license": "MIT",

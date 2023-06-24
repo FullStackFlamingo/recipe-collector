@@ -4,10 +4,10 @@ import App from './App.tsx';
 import './modern.normalize.css';
 import './index.css';
 
-import { initi18n } from './i18n';
+import { initI18n } from './i18n';
 
 const init = async () => {
-  await initi18n();
+  await initI18n();
 
   createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
