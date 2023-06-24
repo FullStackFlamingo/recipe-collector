@@ -27,8 +27,8 @@ export type RecipeJSONLD = {
   dateModified: string;
   datePublished: string;
   headline: string;
-  recipeCategory: string;
-  keywords: string;
+  recipeCategory?: string;
+  keywords?: string;
   recipeIngredient: string[];
   recipeInstructions: RecipeInstruction[];
   cookTime: string;
@@ -39,9 +39,10 @@ export type RecipeJSONLD = {
   recipeYield: number | string;
   suitableForDiet: string;
 };
-export type Recipe = Omit<RecipeJSONLD, 'keywords'> & {
+export type Recipe = Omit<RecipeJSONLD, 'keywords' | 'recipeCategory'> & {
   id?: string;
   keywords: string[];
+  recipeCategory: string[];
 };
 
 export class DexieRecipes extends Dexie {
@@ -52,7 +53,7 @@ export class DexieRecipes extends Dexie {
     // * prefix= multiEntry index https://dexie.org/docs/MultiEntry-Index
     this.version(1).stores({
       recipes:
-        '++id, description, url, dateModified, datePublished, headline, recipeCategory, *keywords, *recipeIngredient, *recipeInstructions, cookTime, prepTime, totalTime, nutrition, image, recipeYield, suitableForDiet', // Primary key and indexed props,
+        '++id, description, url, dateModified, datePublished, headline, *recipeCategory, *keywords, *recipeIngredient, *recipeInstructions, cookTime, prepTime, totalTime, nutrition, image, recipeYield, suitableForDiet', // Primary key and indexed props,
     });
   }
 
@@ -61,7 +62,8 @@ export class DexieRecipes extends Dexie {
     // convert RecipeJSONLD to Recipe
     const recipeObj: Recipe = {
       ...json,
-      keywords: json.keywords.split(',').map((str: string) => str.trim()),
+      keywords: json.keywords?.split(',').map((str: string) => str.trim()) || [],
+      recipeCategory: json.recipeCategory?.split(',').map((str: string) => str.trim()) || [],
     };
     return db.recipes.add(recipeObj);
   }

@@ -26,6 +26,22 @@ function ViewRecipe() {
   return (
     <div>
       <h1>{recipe.name}</h1>
+      <div>
+        <h2>Tags</h2>
+        <ul>
+          {recipe.keywords.map((keyword) => (
+            <li key={keyword}>{keyword}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2>Categories</h2>
+        <ul>
+          {recipe.recipeCategory.map((category) => (
+            <li key={category}>{category}</li>
+          ))}
+        </ul>
+      </div>
       <img src={recipe.image?.url} />
       <div>
         <h4>{t('recipe.labelCookTime')}</h4>
@@ -37,6 +53,37 @@ function ViewRecipe() {
       </div>
 
       <p>{recipe.description}</p>
+
+      <div>
+        <h2>Steps</h2>
+        <ol>
+          {recipe.recipeInstructions.map((instruction) => (
+            <li key={instruction.text}>{instruction.text}</li>
+          ))}
+        </ol>
+      </div>
+
+      <div>
+        <h2>Ingredients</h2>
+        <ul>
+          {recipe.recipeIngredient.map((ingredient, index) => (
+            <li key={ingredient + index}>{ingredient}</li>
+          ))}
+        </ul>
+      </div>
+
+      {recipe.nutrition && (
+        <div>
+          <h2>Nutrition</h2>
+          <ul>
+            {Object.entries(recipe.nutrition).map((val) => (
+              <li key={val[0]}>
+                {val[0]} - {val[1]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
