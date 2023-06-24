@@ -1,9 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import Home from './views/Home.tsx';
 import ErrorPage from './views/ErrorPage.tsx';
 import Recipe from './views/Recipe.tsx';
 
-export const router = createBrowserRouter(
+export const router = createHashRouter(
   [
     {
       id: 'home',
