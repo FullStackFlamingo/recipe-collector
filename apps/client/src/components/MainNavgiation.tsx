@@ -24,7 +24,7 @@ const MobileButton = styled.button<{ $menuOpen: boolean }>`
 export function MainNavigation() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  const { get } = useFetch<RecipeJSONLD>('http://localhost:3333');
+  const { get } = useFetch<RecipeJSONLD>(import.meta.env.VITE_API_URI);
 
   const openUrlPrompt = async () => {
     const url = window.prompt('Enter recipe url');
