@@ -7,14 +7,20 @@ on:
     branches:
       - main
 jobs:
-  Deploy-Production:
+  Deploy-Lambda-Production:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
       - name: Install Vercel CLI
         run: npm install --global vercel@canary
       - name: NPM C-Install
         run: npm ci
+      - name: Test
+        run: npm run test
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
