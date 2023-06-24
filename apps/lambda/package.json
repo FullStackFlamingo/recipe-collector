@@ -6,7 +6,6 @@
   "scripts": {
     "test": "vitest run",
     "dev": "nodemon --exec \"node --inspect --loader ts-node/esm src/server.ts\"",
-    "build": "tsc",
     "start": "NODE_ENV=production node dist/server.js"
   },
   "author": "",
