@@ -13,10 +13,10 @@ export const router = createHashRouter(
     },
     {
       id: 'recipe',
-      path: 'recipes/:recipeId/:recipeSlug?',
+      path: '/recipes/:recipeId/:recipeSlug?',
       element: <Recipe />,
       errorElement: <ErrorPage />,
     },
   ],
-  { basename: '/recipe-collector' },
+  // { basename: '/recipe-collector' },
 );

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import JSONLD from '../recipe-jsonld-example.json';
 import { RecipeJSONLD, db } from '../db';
 import { useFetch } from 'use-http';
 
