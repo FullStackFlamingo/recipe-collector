@@ -1,5 +1,11 @@
 export const en = {
   translation: {
+    headerNavigation: {
+      toggleMenu: 'Toggle Menu',
+    },
+    mainNavigation: {
+      close: 'close',
+    },
     home: {
       test: 'test string',
     },
