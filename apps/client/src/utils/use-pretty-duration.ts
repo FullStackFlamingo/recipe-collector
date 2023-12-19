@@ -1,15 +1,13 @@
 import { parse as parseDuration } from 'tinyduration';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 
 export function usePrettyDuration(duration?: string) {
   const { t } = useTranslation();
 
-  const [prettyDuration, setPrettyDuration] = useState<string | null>(null);
-
-  useEffect(() => {
+  return useMemo(() => {
     if (!duration) {
-      setPrettyDuration(null);
+      return null;
     } else {
       try {
         const parsed = parseDuration(duration);
@@ -24,13 +22,12 @@ export function usePrettyDuration(duration?: string) {
             return out;
           }, [])
           .join(', ');
-        setPrettyDuration(prettyString);
+        return prettyString;
       } catch (e) {
         console.error(e);
-        setPrettyDuration(null);
+        return null;
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duration]);
-
-  return prettyDuration;
 }
