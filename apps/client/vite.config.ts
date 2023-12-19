@@ -12,24 +12,7 @@ export default defineConfig({
       clientPort: 3200,
     },
   },
-  plugins: [
-    react(/* {
-      babel: {
-        plugins: [
-          [
-            // https://github.com/styled-components/babel-plugin-styled-components/issues/350#issuecomment-979873241
-            'babel-plugin-styled-components',
-            {
-              ssr: false,
-              displayName: true,
-              fileName: false,
-            },
-          ],
-        ],
-      },
-    } */),
-    VitePWA(),
-  ],
+  plugins: [react(), VitePWA()],
   build: {
     outDir: '../../docs',
   },
