@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { RecipeJSONLD, db } from '../db';
 import { useFetch } from 'use-http';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { Bars3Icon, PlusCircleIcon, HomeIcon } from '@heroicons/react/24/solid';
+import { RecipeJSONLD, db } from '../db';
 import { Wrapper } from './Wrapper';
-import { Bars3Icon, PlusCircleIcon } from '@heroicons/react/24/solid';
 import DialogAddRecipe from './DialogAddRecipe';
 import DialogMainNavigation from './DialogMainNavigation';
 
@@ -30,9 +31,13 @@ export function HeaderNavgiation() {
           <Bars3Icon className="w-12 p-2" aria-hidden />
         </button>
         <span className="flex-1" />
-        <button className="flex items-center" onClick={openUrlPrompt}>
-          <span>Add Recipe</span>
+        <Link className="flex items-center ml-4" to="/">
+          <HomeIcon aria-hidden className="w-12 p-2" />
+          <span>Recipe List</span>
+        </Link>
+        <button className="flex items-center ml-4" onClick={openUrlPrompt}>
           <PlusCircleIcon aria-hidden className="w-12 p-2" />
+          <span>Add Recipe</span>
         </button>
       </Wrapper>
       <DialogMainNavigation isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
