@@ -16,15 +16,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "styled-components": "6.0.0-rc.3",
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "use-http": "^1.0.28",
     "react-use": "^17.4.0",
     "slugify": "^1.6.6",
-    "react-i18next": "^12.3.1",
-    "i18next": "^22.5.1",
+    "react-i18next": "^13.0.1",
+    "i18next": "^23.2.3",
     "dexie": "^3.2.4",
     "dexie-react-hooks": "^1.1.6",
-    "tinyduration": "^3.2.4"
+    "tinyduration": "^3.2.4",
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.10",
@@ -36,7 +38,10 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
-    "vitest": "^0.32.2"
+    "vitest": "^0.32.2",
+    "postcss": "^8.4.24",
+    "autoprefixer": "^10.4.14",
+    "tailwindcss": "^3.3.2"
   },
   "workspaces": [
     "apps/*"
