@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
+import purify from 'dompurify';
 import { Recipe, db } from '../db';
 import { usePrettyDuration } from '../utils/use-pretty-duration';
 
@@ -25,7 +26,7 @@ function ViewRecipe() {
 
   return (
     <div>
-      <h1>{recipe.name}</h1>
+      <h1 dangerouslySetInnerHTML={{ __html: purify.sanitize(recipe.name) }} />
       <div>
         <h2>Tags</h2>
         <ul>
@@ -52,7 +53,7 @@ function ViewRecipe() {
         <span>{prepTime}</span>
       </div>
 
-      <p>{recipe.description}</p>
+      <p dangerouslySetInnerHTML={{ __html: purify.sanitize(recipe.description) }} />
 
       <div>
         <h2>Steps</h2>
