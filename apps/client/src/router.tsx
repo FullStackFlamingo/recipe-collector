@@ -1,7 +1,7 @@
 import { createHashRouter } from 'react-router-dom';
-import Home from './views/Home.tsx';
+import RecipeLister from './views/RecipeLister.tsx';
 import ErrorPage from './views/ErrorPage.tsx';
-import Recipe from './views/Recipe.tsx';
+import RecipeDetail from './views/RecipeDetail.tsx';
 import App from './App.tsx';
 
 export const router = createHashRouter(
@@ -12,15 +12,15 @@ export const router = createHashRouter(
       element: <App />,
       children: [
         {
-          id: 'home',
+          id: 'recipe-lister',
           index: true,
-          element: <Home />,
+          element: <RecipeLister />,
           errorElement: <ErrorPage />,
         },
         {
-          id: 'recipe',
+          id: 'recipe-detail',
           path: 'recipes/:recipeId/:recipeSlug?',
-          element: <Recipe />,
+          element: <RecipeDetail />,
           errorElement: <ErrorPage />,
         },
       ],
