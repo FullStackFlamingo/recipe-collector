@@ -9,9 +9,23 @@ export const en = {
     home: {
       test: 'test string',
     },
-    recipe: {
+    recipeDetail: {
+      loading: 'Loading...',
+      titleIngredients: 'Ingredients',
+      titleNutrition: 'Nutrition',
+      titleTags: 'Tags',
+      titleCategories: 'Categories',
+
+      titleSteps: 'Steps',
       labelCookTime: 'Cook time',
       labelPrepTime: 'Prep time',
+    },
+    recipeLister: {
+      labelKeywords: 'Search',
+    },
+    errorPage: {
+      title: 'Oops!',
+      message: 'Sorry, an unexpected error has occurred.',
     },
     global: {
       duration_hours: 'hours',
