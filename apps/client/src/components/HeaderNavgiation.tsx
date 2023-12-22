@@ -2,22 +2,21 @@ import { useState } from 'react';
 import { useFetch } from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Bars3Icon, PlusCircleIcon, HomeIcon } from '@heroicons/react/24/solid';
+import { Bars3Icon, PlusCircleIcon, HomeIcon, CogIcon } from '@heroicons/react/24/solid';
 import { RecipeJSONLD, db } from '../db';
 import { Wrapper } from './Wrapper';
-import DialogAddRecipe from './DialogAddRecipe';
 import DialogMainNavigation from './DialogMainNavigation';
 
 export function HeaderNavgiation() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  const { get } = useFetch<RecipeJSONLD>(import.meta.env.VITE_API_URI);
+  const { get, loading } = useFetch<RecipeJSONLD>(import.meta.env.VITE_API_URI);
 
   const openUrlPrompt = async () => {
+    if (loading) return;
     const url = window.prompt('Enter recipe url', 'https://www.bbcgoodfood.com/recipes/cheese-bacon-turnovers');
     if (url) {
       const result = await get(`/?${new URLSearchParams({ url }).toString()}`);
-      console.log(result);
       const id = await db.addRecipeFromJSON(result);
     }
   };
@@ -36,7 +35,11 @@ export function HeaderNavgiation() {
           <span>Recipe List</span>
         </Link>
         <button className="flex items-center ml-4" onClick={openUrlPrompt}>
-          <PlusCircleIcon aria-hidden className="w-12 p-2" />
+          {loading ? (
+            <CogIcon aria-hidden className="w-12 p-2 animate-spin" />
+          ) : (
+            <PlusCircleIcon aria-hidden className="w-12 p-2" />
+          )}
           <span>Add Recipe</span>
         </button>
       </Wrapper>
