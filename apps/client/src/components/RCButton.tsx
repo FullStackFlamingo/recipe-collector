@@ -8,14 +8,14 @@ type props = Omit<LinkProps, 'to'> &
     to?: To;
     className?: string | null;
   };
-export default function TagPill({ children, to, className }: props) {
+export default function RCButton({ children, to, className }: props) {
   const classNameExtended = classNames(
-    'p-2 inline-block leading-none rounded-md border border-green-500 bg-green-200 text-black text-sm',
+    'p-2 inline-block leading-none rounded-md border border-teal-400 bg-teal-600 text-white text-md no-underline',
     className,
   );
 
   return (
-    <DynamicLink to={to} className={classNameExtended}>
+    <DynamicLink tag="button" to={to} className={classNameExtended}>
       {children}
     </DynamicLink>
   );

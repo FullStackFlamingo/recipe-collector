@@ -11,6 +11,7 @@ export const en = {
     },
     recipeDetail: {
       loading: 'Loading...',
+      buttonBack: 'Back',
       titleIngredients: 'Ingredients',
       titleNutrition: 'Nutrition',
       titleTags: 'Tags',

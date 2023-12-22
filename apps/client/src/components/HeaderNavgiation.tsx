@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useFetch } from 'use-http';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Bars3Icon, PlusCircleIcon, HomeIcon, CogIcon } from '@heroicons/react/24/solid';
 import { RecipeJSONLD, db } from '../db';
 import { Wrapper } from './Wrapper';
 import DialogMainNavigation from './DialogMainNavigation';
+import { getRecipeURL } from '../utils/get-recipe-url';
 
 export function HeaderNavgiation() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-
+  const navigate = useNavigate();
   const { get, loading } = useFetch<RecipeJSONLD>(import.meta.env.VITE_API_URI);
 
   const openUrlPrompt = async () => {
@@ -18,6 +19,9 @@ export function HeaderNavgiation() {
     if (url) {
       const result = await get(`/?${new URLSearchParams({ url }).toString()}`);
       const id = await db.addRecipeFromJSON(result);
+      if (id) {
+        navigate(`/recipes/${id}`);
+      }
     }
   };
 
