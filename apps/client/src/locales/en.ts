@@ -2,6 +2,8 @@ export const en = {
   translation: {
     headerNavigation: {
       toggleMenu: 'Toggle Menu',
+      buttonRecipeList: 'Recipe list',
+      buttonAddRecipe: 'Add recipe',
     },
     mainNavigation: {
       close: 'close',
@@ -22,7 +24,8 @@ export const en = {
       labelPrepTime: 'Prep time',
     },
     recipeLister: {
-      labelKeywords: 'Search',
+      labelSearchText: 'Search',
+      buttonAddRecipe: 'Add recipe',
     },
     errorPage: {
       title: 'Oops!',

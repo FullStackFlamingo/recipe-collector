@@ -8,6 +8,9 @@ import { Wrapper } from '../components/Wrapper';
 import TagPill from '../components/TagPill';
 import RCButton from '../components/RCButton';
 
+const getListerFilteredURL = (searchText: string): string => {
+  return `/?searchText=${searchText}`;
+};
 export default function ViewRecipe() {
   const { t } = useTranslation();
 
@@ -19,7 +22,7 @@ export default function ViewRecipe() {
     }
     return undefined;
   }, [recipeId]);
-  recipe?.keywords;
+
   const cookTime = usePrettyDuration(recipe?.cookTime);
   const prepTime = usePrettyDuration(recipe?.prepTime);
 
@@ -99,7 +102,7 @@ export default function ViewRecipe() {
             <ul className="flex flex-wrap">
               {recipe.keywords.map((keyword) => (
                 <li key={keyword} className="mr-2 mb-2">
-                  <TagPill>{keyword}</TagPill>
+                  <TagPill to={getListerFilteredURL(keyword)}>{keyword}</TagPill>
                 </li>
               ))}
             </ul>
@@ -107,7 +110,7 @@ export default function ViewRecipe() {
             <ul className="flex flex-wrap">
               {recipe.recipeCategory.map((category) => (
                 <li key={category} className="mr-2 mb-2">
-                  <TagPill>{category}</TagPill>
+                  <TagPill to={getListerFilteredURL(category)}>{category}</TagPill>
                 </li>
               ))}
             </ul>

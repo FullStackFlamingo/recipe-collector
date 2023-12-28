@@ -1,21 +1,14 @@
 import classNames from 'classnames';
-import { PropsWithChildren } from 'react';
-import { LinkProps, To } from 'react-router-dom';
-import DynamicLink from './DynamicLink';
+import DynamicLink, { props } from './DynamicLink';
 
-type props = Omit<LinkProps, 'to'> &
-  PropsWithChildren & {
-    to?: To;
-    className?: string | null;
-  };
-export default function TagPill({ children, to, className }: props) {
+export default function TagPill<T extends keyof JSX.IntrinsicElements>({ className, children, ...props }: props<T>) {
   const classNameExtended = classNames(
     'p-2 inline-block leading-none rounded-md border border-green-500 bg-green-200 text-black text-sm',
     className,
   );
 
   return (
-    <DynamicLink to={to} className={classNameExtended}>
+    <DynamicLink<T> {...props} className={classNameExtended}>
       {children}
     </DynamicLink>
   );

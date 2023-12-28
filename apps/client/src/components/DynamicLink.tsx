@@ -1,23 +1,15 @@
-import { PropsWithChildren } from 'react';
-import { Link, LinkProps, To } from 'react-router-dom';
+import { JSX } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
 
-type props = Omit<LinkProps, 'to'> &
-  PropsWithChildren & {
-    to?: To;
-    className?: string | null;
-    tag?: keyof JSX.IntrinsicElements;
-  };
+export type props<T extends keyof JSX.IntrinsicElements> =
+  | ({ as?: undefined } & LinkProps)
+  | ({ as: React.ElementType<any> } & JSX.IntrinsicElements[T]);
+
 /**
- * if `props.to` is supplied, will be a react-router-dom Link
+ * if `props.as` is not supplied, deault to be a react-router-dom `Link`
  */
-export default function DynamicLink({ children, to, className, tag = 'span' }: props) {
-  const Component = tag as keyof JSX.IntrinsicElements;
+export default function DynamicLink<T extends keyof JSX.IntrinsicElements>({ as, children, ...props }: props<T>) {
+  const Component = as || Link;
 
-  if (!to) return <Component className={className}>{children}</Component>;
-
-  return (
-    <Link to={to} className={className}>
-      {children}
-    </Link>
-  );
+  return <Component {...props}>{children}</Component>;
 }
